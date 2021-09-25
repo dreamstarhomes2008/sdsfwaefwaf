@@ -56,22 +56,23 @@ function deleteNote(index) {
 }
 
 
-let search = document.getElementById("searchTxt");
-search.addEventListener("input", function () {
 
-  let searchval = search.value;
+let search = document.getElementById('searchTxt');
+search.addEventListener("input", function(){
 
-  let notetxt = document.getElementsByClassName("cardtext");
 
-  Array.from(notetxt).forEach(function(element) {
-   let caedtext = element.getElementsByTagName|("p")[0].innerHTML ;
-   if(caedtext.includes(searchval)){
-    element.style.display = "block";
-}
-else{
-    element.style.display = "none";
+  let inputval = search.value.toLowerCase();
+  // console.log(inputval);
+  let cardtxt = document.getElementsByClassName('noteCard');
+  Array.from(cardtxt).forEach(function(element){
+    let cardtxt2 = element.getElementsByTagName("p")[0].innertext;
+    if (inputval.includes(cardtxt2)) {
+      element.style.display = "block";
 
-}
-  });
-});
+    } else {
+      element.style.display = "none";
 
+    } 
+  })
+
+})
